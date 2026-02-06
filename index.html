@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Do you like me? 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    h1 {
+      color: #d63384;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 120px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 18px;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: absolute;
+    }
+
+    #yesBtn {
+      background: #ff69b4;
+      color: white;
+      left: 0;
+    }
+
+    #noBtn {
+      background: #ff4d4d;
+      color: white;
+      right: 0;
+    }
+
+    #message {
+      font-size: 26px;
+      color: #d63384;
+      margin-top: 20px;
+      opacity: 0;
+      transform: scale(0.5);
+      transition: all 0.5s ease;
+    }
+
+    #message.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Do you like me? 🥺💖</h1>
+
+    <div class="buttons" id="buttons">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 😒</button>
+    </div>
+
+    <div id="message">Yaaay! 💘 I knew it 😏</div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+    const message = document.getElementById("message");
+    const buttons = document.getElementById("buttons");
+
+    noBtn.addEventListener("mouseenter", () => {
+      const containerWidth = buttons.offsetWidth - noBtn.offsetWidth;
+      const containerHeight = buttons.offsetHeight - noBtn.offsetHeight;
+
+      const randomX = Math.random() * containerWidth;
+      const randomY = Math.random() * containerHeight;
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    });
+
+    yesBtn.addEventListener("click", () => {
+      buttons.style.display = "none";
+      message.classList.add("show");
+    });
+  </script>
+
+</body>
+</html>
